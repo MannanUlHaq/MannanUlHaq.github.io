@@ -1,0 +1,1837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mannan Ul Haq - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #4285f4;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #666;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: #4285f4;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: #4285f4;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="50" cy="10" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="10" cy="90" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            flex: 1;
+            animation: fadeInLeft 1s ease-out;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .hero-content h1 .highlight {
+            color: #4285f4;
+            position: relative;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: #4285f4;
+            color: white;
+            box-shadow: 0 4px 15px rgba(66, 133, 244, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: #3367d6;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(66, 133, 244, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #4285f4;
+            border: 2px solid #4285f4;
+        }
+
+        .btn-secondary:hover {
+            background: #4285f4;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            animation: fadeInRight 1s ease-out;
+        }
+
+        .profile-container {
+            position: relative;
+            width: 400px;
+            height: 400px;
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 8px solid white;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-icons {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        .floating-icon {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: bounce 3s ease-in-out infinite;
+        }
+
+        .floating-icon img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .floating-icon:nth-child(1) {
+            top: 10%;
+            right: 20%;
+            animation-delay: 0s;
+        }
+
+        .floating-icon:nth-child(2) {
+            bottom: 30%;
+            left: 10%;
+            animation-delay: 1s;
+        }
+
+        .floating-icon:nth-child(3) {
+            top: 60%;
+            right: 5%;
+            animation-delay: 2s;
+        }
+
+        /* Sections */
+        .section {
+            padding: 100px 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: #4285f4;
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about {
+            background: white;
+        }
+
+        .about-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .about-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .about-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #f0f0f0;
+        }
+
+        .about-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .about-card img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 1rem;
+        }
+
+        .about-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .about-card .card-subtitle {
+            color: #4285f4;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Experience Section */
+        .experience {
+            background: #f8f9fa;
+        }
+
+        .experience-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #4285f4;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: 55%;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 55%;
+            text-align: left;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            background: #4285f4;
+            border-radius: 50%;
+            transform: translateX(-50%);
+            border: 4px solid white;
+            box-shadow: 0 0 0 4px #4285f4;
+        }
+
+        .job-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .company {
+            color: #4285f4;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .job-period {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .job-type {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .job-type.research {
+            background: #ffebee;
+            color: #c62828;
+        }
+
+        .job-type.internship {
+            background: #fff3e0;
+            color: #ef6c00;
+        }
+
+        .job-type.freelance {
+            background: #e8f5e8;
+            color: #2e7d32;
+        }
+
+        .job-type.academic {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+
+        /* Skills Section */
+        .skills {
+            background: white;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-category h3 {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            font-size: 1.3rem;
+            color: #333;
+        }
+
+        .skill-category img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .skill-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 0.5rem 0;
+        }
+
+        .skill-name {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .skill-stars {
+            display: flex;
+            gap: 2px;
+        }
+
+        .star {
+            width: 16px;
+            height: 16px;
+            background: #ddd;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .star.filled {
+            background: #4285f4;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .skill-tag {
+            padding: 6px 12px;
+            background: white;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #666;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: #4285f4;
+            color: white;
+            border-color: #4285f4;
+        }
+
+        /* Education Section */
+        .education {
+            background: #f8f9fa;
+        }
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+        }
+
+        .education-card, .cert-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .education-card:hover, .cert-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .award-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .award-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Projects Section */
+        .projects {
+            background: white;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-tag {
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .project-features {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .project-features li {
+            padding: 0.3rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+            color: #666;
+        }
+
+        .project-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .project-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .github-link {
+            background: #f1f3f4;
+            color: #333;
+        }
+
+        .github-link:hover {
+            background: #333;
+            color: white;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: #f8f9fa;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            border-radius: 10px;
+            background: #f8f9fa;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: #4285f4;
+            color: white;
+            transform: translateX(10px);
+        }
+
+        .contact-item img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #4285f4;
+            box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.1);
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a2e;
+            color: white;
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #4285f4;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #4285f4;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #333;
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: #4285f4;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            color: #999;
+        }
+
+        /* Animations */
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                margin: 0;
+                text-align: left;
+            }
+
+            .experience-timeline::before {
+                left: 20px;
+            }
+
+            .timeline-dot {
+                left: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">Mannan Ul Haq</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Hi, I'm <span class="highlight">Mannan Ul Haq</span></h1>
+                <p class="subtitle">Associate Data Scientist, AI Researcher & Developer</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                    <a href="#projects" class="btn btn-secondary">View Projects</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="profile-container">
+                    <img src="https://i.ibb.co/RG5C7yD1/Image1.jpg" alt="Mannan Ul Haq" class="profile-image">
+                    <div class="floating-icons">
+                        <div class="floating-icon">
+                            <img src="https://i.ibb.co/qY73YgHy/Icon-Near-Profile-1.png" alt="Code">
+                        </div>
+                        <div class="floating-icon">
+                            <img src="https://i.ibb.co/GQ0D7Pj3/Icon-Near-Profile-2.png" alt="AI">
+                        </div>
+                        <div class="floating-icon">
+                            <img src="https://i.ibb.co/hFPSCb80/Icon-Near-Profile-3.png" alt="Data">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <p>A dedicated Data Scientist, Analyst, and AI Engineer with a deep passion for Machine Learning, Deep Learning, Natural Language Processing, Computer Vision, and Agentic AI. I thrive on building intelligent, innovative solutions that make real-world impact.</p>
+            </div>
+            <div class="about-cards">
+                <div class="about-card">
+                    <img src="https://i.ibb.co/nM7rBFC8/Education-Excellence.png" alt="Education Excellence">
+                    <h3>Education Excellence</h3>
+                    <p class="card-subtitle">Academic Foundation</p>
+                    <p>BS Data Science at FAST-NUCES Lahore with strong performance in machine learning, AI, and big data analytics. Consistent academic excellence across theoretical and practical domains.</p>
+                </div>
+                <div class="about-card">
+                    <img src="https://i.ibb.co/CsX4RwHW/Technical-Expertise.png" alt="Technical Expertise">
+                    <h3>Technical Expertise</h3>
+                    <p class="card-subtitle">Core Technologies</p>
+                    <p>Proficient in Python, C++, JavaScript, and R. Expert in TensorFlow, PyTorch, Scikit-learn, and Hugging Face Transformers. Experienced with big data tools, cloud platforms, and modern development workflows.</p>
+                </div>
+                <div class="about-card">
+                    <img src="https://i.ibb.co/2QJ1Gwh/Community-Impact.png" alt="Community Impact">
+                    <h3>Community Impact</h3>
+                    <p class="card-subtitle">Mentorship & Teaching</p>
+                    <p>Founder of CodeTechMentor providing free programming resources. Teaching Assistant at FAST-NUCES mentoring 100+ students in data science and AI development.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section experience" id="experience">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 3rem;">My professional journey in data science, artificial intelligence, research, and education.</p>
+            <div class="experience-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="job-title">Junior Software Engineer (Jul 2025 - Present)</h3>
+                        <p class="company">FAST-NUCES</p>
+                        <p class="job-period">Jul 2025 - Present</p>
+                        <span class="job-type research">Funded Research Position</span>
+                        <p>As a Junior Software Engineer at FAST-NUCES, I'm actively contributing to cutting-edge research and development projects at the intersection of AI and sustainable technology. My current work involves developing intelligent software systems and AI agents designed to enhance automation, decision-making, and interaction capabilities. In parallel, we are exploring innovations in electronic vehicle (EV) technology, focusing on integrating AI-driven components for smart control, energy efficiency, and autonomous behavior.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="job-title">Intern – Applied Machine Learning & Data Fusion (Jun 2025 - Present)</h3>
+                        <p class="company">StalFusion Research</p>
+                        <p class="job-period">Jun 2025 - Present</p>
+                        <span class="job-type internship">Internship</span>
+                        <p>This internship is an opportunity to contribute to ongoing projects focused on air quality research, environmental data integration, and predictive modeling using advanced machine learning and data fusion techniques.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="job-title">Freelance AI & Software Developer (Jun 2025 - Present)</h3>
+                        <p class="company">Devinci Code</p>
+                        <p class="job-period">Jun 2025 - Present</p>
+                        <span class="job-type freelance">Freelancing</span>
+                        <p>Collaborating on AI and computer vision projects as part of a freelance team at Devinci Code. Contributing to the development of agentic AI systems, intelligent automation tools, and real-world applications involving image processing, task planning, and dynamic software integration.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="job-title">Teaching Assistant (Aug 2024 - Present)</h3>
+                        <p class="company">FAST-NUCES</p>
+                        <p class="job-period">Aug 2024 - Present</p>
+                        <span class="job-type academic">Academic</span>
+                        <p>Assisting students with Data Science and Applied Machine Learning. Contributed to the development of quizzes and assignments, facilitated course projects, and provided academic support to students. Developed strong communication skills while helping students grasp complex concepts.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="job-title">Undergraduate Research Assistant (Oct 2024 - Jul 2025)</h3>
+                        <p class="company">FAST-NUCES</p>
+                        <p class="job-period">Oct 2024 - Jul 2025</p>
+                        <span class="job-type research">Research</span>
+                        <p>Worked on improving Human Activity Recognition (HAR) using wearable sensor data through a novel Deep Capsule Network (DCapsNet) framework. Focused on enhancing classification accuracy and robustness by integrating spatial hierarchy preservation, reconstruction loss, and trigonometric orientation-based features. Co-authored the research paper titled "Capsules in Motion: A Deep Orientation-Aware Framework for Human Activity Recognition," which has been submitted for publication to Springer's Complex & Intelligent Systems (CIS) journal.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section skills" id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills & Expertise</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 3rem;">A comprehensive toolkit for modern data science and AI development.</p>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>
+                        <img src="https://i.ibb.co/BKCMkjQw/Programming.png" alt="Programming">
+                        Programming
+                    </h3>
+                    <div class="skill-item">
+                        <span class="skill-name">Python</span>
+                        <div class="skill-stars">
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">C++</span>
+                        <div class="skill-stars">
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">C</span>
+                        <div class="skill-stars">
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">C#</span>
+                        <div class="skill-stars">
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                            <div class="star"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">JavaScript</span>
+                        <div class="skill-stars">
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                            <div class="star"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">SQL</span>
+                        <div class="skill-stars">
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>
+                        <img src="https://i.ibb.co/kgRFQXkS/Data-Science.png" alt="Data Science">
+                        Data Science
+                    </h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Machine Learning</span>
+                        <span class="skill-tag">Deep Learning</span>
+                        <span class="skill-tag">Natural Language Processing</span>
+                        <span class="skill-tag">Computer Vision</span>
+                        <span class="skill-tag">Database Design</span>
+                        <span class="skill-tag">Statistical Analysis</span>
+                        <span class="skill-tag">Data Analysis</span>
+                        <span class="skill-tag">Data Visualization</span>
+                        <span class="skill-tag">Data Mining</span>
+                        <span class="skill-tag">Big Data</span>
+                        <span class="skill-tag">Agentic AI</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>
+                        <img src="https://i.ibb.co/qLwPSSqL/Tools-Technologies.png" alt="Tools & Technologies">
+                        Tools & Technologies
+                    </h3>
+                    <div style="margin-bottom: 1.5rem;">
+                        <h4 style="color: #333; margin-bottom: 0.5rem;">Development</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Git/GitHub</span>
+                            <span class="skill-tag">Replit</span>
+                            <span class="skill-tag">ASP.NET</span>
+                            <span class="skill-tag">Visual Studio</span>
+                            <span class="skill-tag">VS Code</span>
+                            <span class="skill-tag">PyCharm</span>
+                            <span class="skill-tag">Jupyter Notebook</span>
+                            <span class="skill-tag">Google Colab</span>
+                            <span class="skill-tag">Figma</span>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <h4 style="color: #333; margin-bottom: 0.5rem;">AI/ML</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">TensorFlow</span>
+                            <span class="skill-tag">Keras</span>
+                            <span class="skill-tag">PyTorch</span>
+                            <span class="skill-tag">Scikit-learn</span>
+                            <span class="skill-tag">Pandas</span>
+                            <span class="skill-tag">NumPy</span>
+                            <span class="skill-tag">OpenCV</span>
+                            <span class="skill-tag">Hugging Face Transformers</span>
+                            <span class="skill-tag">spaCy</span>
+                            <span class="skill-tag">NLTK</span>
+                            <span class="skill-tag">Gensim</span>
+                            <span class="skill-tag">Sentence Transformers</span>
+                            <span class="skill-tag">Tesseract</span>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <h4 style="color: #333; margin-bottom: 0.5rem;">Data Tools</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Tableau</span>
+                            <span class="skill-tag">Power BI</span>
+                            <span class="skill-tag">SQL Server Management Studio</span>
+                            <span class="skill-tag">Hadoop</span>
+                            <span class="skill-tag">PySpark</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 style="color: #333; margin-bottom: 0.5rem;">Automation & Others</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">n8n</span>
+                            <span class="skill-tag">Twilio</span>
+                            <span class="skill-tag">Supabase</span>
+                            <span class="skill-tag">Apify</span>
+                            <span class="skill-tag">BeautifulSoup</span>
+                            <span class="skill-tag">Selenium</span>
+                            <span class="skill-tag">Requests</span>
+                            <span class="skill-tag">Kaggle Notebooks</span>
+                            <span class="skill-tag">Go High Level</span>
+                            <span class="skill-tag">Notion</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section education" id="education">
+        <div class="container">
+            <h2 class="section-title">Education & Certifications</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 3rem;">Academic achievements and professional certifications that drive my expertise.</p>
+            
+            <div class="education-grid">
+                <div class="education-card">
+                    <img src="https://i.ibb.co/qLwPSSqL/Education.png" alt="Education" style="width: 60px; height: 60px; margin-bottom: 1rem;">
+                    <h3>Education</h3>
+                    <p style="color: #4285f4; margin-bottom: 1rem;">Academic Background</p>
+                    <div style="border-left: 4px solid #4285f4; padding-left: 1rem;">
+                        <h4>BS Data Science</h4>
+                        <p style="color: #4285f4; font-weight: 600;">FAST-NUCES Lahore</p>
+                        <p style="color: #666; font-size: 0.9rem;">Grade: 6th Semester Completed</p>
+                        <p style="color: #2e7d32; font-weight: 600; margin-top: 0.5rem;">CGPA: 3.74</p>
+                    </div>
+                </div>
+
+                <div class="education-card">
+                    <img src="https://i.ibb.co/VchWWk1b/Certifications.png" alt="Certifications" style="width: 60px; height: 60px; margin-bottom: 1rem;">
+                    <h3>Certifications</h3>
+                    <p style="color: #4285f4; margin-bottom: 1rem;">Professional Credentials</p>
+                    <div class="cert-grid">
+                        <div class="cert-card">
+                            <h4 style="color: #333; margin-bottom: 0.5rem;">DataCamp Certified</h4>
+                            <p style="color: #4285f4; font-size: 0.9rem;">Associate Data Scientist</p>
+                            <span style="background: #e8f5e8; color: #2e7d32; padding: 4px 8px; border-radius: 12px; font-size: 0.8rem; font-weight: 600;">Verified</span>
+                        </div>
+                        <div class="cert-card">
+                            <h4 style="color: #333; margin-bottom: 0.5rem;">DataCamp Certified</h4>
+                            <p style="color: #4285f4; font-size: 0.9rem;">Associate Data Analyst</p>
+                            <span style="background: #e8f5e8; color: #2e7d32; padding: 4px 8px; border-radius: 12px; font-size: 0.8rem; font-weight: 600;">Verified</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 4rem;">
+                <h3 style="text-align: center; font-size: 2rem; margin-bottom: 2rem; color: #333;">Honors & Awards</h3>
+                <p style="text-align: center; color: #666; margin-bottom: 3rem;">Recognition for academic excellence and achievements</p>
+                <div class="awards-grid">
+                    <div class="award-card">
+                        <img src="https://i.ibb.co/j9L48rxc/Dean-s-List.png" alt="Dean's List" style="width: 60px; height: 60px; margin-bottom: 1rem;">
+                        <h3>Dean's List</h3>
+                        <p style="color: #666; margin-bottom: 0.5rem;">4 Consecutive Semesters</p>
+                        <p style="color: #4285f4; font-weight: 600;">FAST-NUCES</p>
+                    </div>
+                    <div class="award-card">
+                        <img src="https://i.ibb.co/VKHZnzm/Academic-Excellence.png" alt="Academic Excellence" style="width: 60px; height: 60px; margin-bottom: 1rem;">
+                        <h3>Academic Excellence</h3>
+                        <p style="color: #666; margin-bottom: 0.5rem;">SGPA 4.00 Spring 2025</p>
+                        <p style="color: #4285f4; font-weight: 600;">Top Performer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section projects" id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 3rem;">Showcasing innovative solutions in data science, AI, and software development.</p>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3 style="color: #333; margin-bottom: 1rem;">Ola – All You Need in a Teacher's Best Assistant</h3>
+                    <div class="project-tags">
+                        <span class="project-tag" style="background: #e3f2fd; color: #1565c0;">NLP</span>
+                        <span class="project-tag" style="background: #e8f5e8; color: #2e7d32;">Computer Vision</span>
+                        <span class="project-tag" style="background: #fce4ec; color: #c2185b;">Deep Learning</span>
+                        <span class="project-tag" style="background: #fff3e0; color: #ef6c00;">Transformer Models</span>
+                        <span class="project-tag" style="background: #f3e5f5; color: #7b1fa2;">AI</span>
+                    </div>
+                    <p style="color: #666; margin-bottom: 1rem;">Ola is an AI-powered educational assistant designed to support teachers by automating key classroom tasks. The project features two core modules: Automated Lecture Note Generation and Whiteboard Text Refinement. The note generation module combines OCR-extracted slide text with audio transcriptions using a fine-tuned Whisper model, enhanced through a T5-based summarization model. The whiteboard module uses a drawing canvas and a deep Capsule Network trained on EMNIST.</p>
+                    
+                    <ul class="project-features">
+                        <li>Automated lecture note generation with OCR and audio transcription</li>
+                        <li>Fine-tuned Whisper model for speech-to-text conversion</li>
+                        <li>T5-based summarization for content enhancement</li>
+                        <li>Deep Capsule Network for handwritten text recognition</li>
+                    </ul>
+
+                    <p style="color: #666; font-size: 0.9rem; margin: 1rem 0;">Feb 2025 - May 2025</p>
+                    <p style="color: #4285f4; font-size: 0.9rem; margin-bottom: 1rem;">Associated with FAST-NUCES</p>
+
+                    <div class="project-links">
+                        <a href="https://github.com/MannanUlHaq/Ola-All-You-Need-in-a-Teacher-s-Best-Assistant" class="project-link github-link" target="_blank">
+                            📂 View on GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3 style="color: #333; margin-bottom: 1rem;">Weather Data Analysis</h3>
+                    <div class="project-tags">
+                        <span class="project-tag" style="background: #e3f2fd; color: #1565c0;">Data Analysis</span>
+                        <span class="project-tag" style="background: #e8f5e8; color: #2e7d32;">Data Visualization</span>
+                        <span class="project-tag" style="background: #fce4ec; color: #c2185b;">Machine Learning</span>
+                        <span class="project-tag" style="background: #fff3e0; color: #ef6c00;">Deep Learning</span>
+                        <span class="project-tag" style="background: #fff8e1; color: #f57f17;">Power BI</span>
+                    </div>
+                    <p style="color: #666; margin-bottom: 1rem;">The objective of this project is to analyze historical weather data to predict precipitation (rainfall) using machine learning and deep learning models. This project aims to explore weather patterns such as temperature, humidity, and wind speed to develop a reliable forecasting model that predicts rainfall.</p>
+                    
+                    <ul class="project-features">
+                        <li>Historical weather data analysis and pattern exploration</li>
+                        <li>Machine learning models for rainfall prediction</li>
+                        <li>Deep learning approaches for weather forecasting</li>
+                        <li>Interactive data visualizations with Power BI</li>
+                    </ul>
+
+                    <p style="color: #666; font-size: 0.9rem; margin: 1rem 0;">Sep 2024 - Nov 2024</p>
+                    <p style="color: #4285f4; font-size: 0.9rem; margin-bottom: 1rem;">Associated with FAST-NUCES</p>
+
+                    <div class="project-links">
+                        <a href="https://github.com/MannanUlHaq/Weather-Data-Analysis" class="project-link github-link" target="_blank">
+                            📂 View on GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3 style="color: #333; margin-bottom: 1rem;">Bank Management System - DigiBank</h3>
+                    <div class="project-tags">
+                        <span class="project-tag" style="background: #e3f2fd; color: #1565c0;">DBMS</span>
+                        <span class="project-tag" style="background: #fff3e0; color: #ef6c00;">JavaScript</span>
+                        <span class="project-tag" style="background: #fce4ec; color: #c2185b;">HTML</span>
+                        <span class="project-tag" style="background: #fff3e0; color: #ef6c00;">Web Applications</span>
+                        <span class="project-tag" style="background: #e8f5e8; color: #2e7d32;">GUI</span>
+                    </div>
+                    <p style="color: #666; margin-bottom: 1rem;">Introducing DigiBank: a cutting-edge bank management system that integrates facial recognition technology for enhanced security and seamless user experience. Revolutionize your banking operations with advanced features tailored for both customers and bank staff.</p>
+                    
+                    <ul class="project-features">
+                        <li>Facial recognition technology for enhanced security</li>
+                        <li>Comprehensive bank management functionalities</li>
+                        <li>User-friendly graphical interface</li>
+                        <li>Multi-role access for customers and bank staff</li>
+                    </ul>
+
+                    <p style="color: #666; font-size: 0.9rem; margin: 1rem 0;">Jan 2024 - May 2024</p>
+                    <p style="color: #4285f4; font-size: 0.9rem; margin-bottom: 1rem;">Associated with FAST-NUCES</p>
+
+                    <div class="project-links">
+                        <a href="https://github.com/MannanUlHaq/Bank-Management-System" class="project-link github-link" target="_blank">
+                            📂 View on GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3 style="color: #333; margin-bottom: 1rem;">Secure Election Authentication System</h3>
+                    <div class="project-tags">
+                        <span class="project-tag" style="background: #e8f5e8; color: #2e7d32;">Software Engineering</span>
+                        <span class="project-tag" style="background: #fce4ec; color: #c2185b;">C#</span>
+                        <span class="project-tag" style="background: #e3f2fd; color: #1565c0;">DBMS</span>
+                        <span class="project-tag" style="background: #e8f5e8; color: #2e7d32;">GUI</span>
+                        <span class="project-tag" style="background: #ffebee; color: #c62828;">Desktop Development</span>
+                    </div>
+                    <p style="color: #666; margin-bottom: 1rem;">Revolutionize electoral integrity with 'Vote ko Izat do' – a secure desktop application combating electoral fraud. Our solution offers advanced facial recognition authentication, database management, and real-time monitoring for fair, transparent elections.</p>
+                    
+                    <ul class="project-features">
+                        <li>Advanced facial recognition authentication for voters</li>
+                        <li>Secure database management for electoral data</li>
+                        <li>Real-time monitoring and fraud detection</li>
+                        <li>Desktop application with intuitive GUI</li>
+                    </ul>
+
+                    <p style="color: #666; font-size: 0.9rem; margin: 1rem 0;">Jan 2024 - May 2024</p>
+                    <p style="color: #4285f4; font-size: 0.9rem; margin-bottom: 1rem;">Associated with FAST-NUCES</p>
+
+                    <div class="project-links">
+                        <a href="https://github.com/MannanUlHaq/Secure-Election-Authentication-System" class="project-link github-link" target="_blank">
+                            📂 View on GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 3rem;">Let's connect and discuss opportunities in data science, AI research, or collaboration.</p>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3 style="margin-bottom: 2rem; color: #333;">Contact Information</h3>
+                    
+                    <div class="contact-item">
+                        <img src="https://i.ibb.co/S435fC1H/email.png" alt="Email">
+                        <div>
+                            <h4>Email</h4>
+                            <p>mannanulhaq2004@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <img src="https://i.ibb.co/fYNVyytR/phone.png" alt="Phone">
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+92 324 6272488</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div style="width: 24px; height: 24px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 12px;">W</div>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <p>Chat on WhatsApp</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <img src="https://i.ibb.co/27nnMXKx/location.png" alt="Location">
+                        <div>
+                            <h4>Location</h4>
+                            <p>Lahore, Pakistan</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 2rem;">
+                        <h4 style="margin-bottom: 1rem; color: #333;">Social Links</h4>
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/mannan-ul-haq-5578b721b/" class="social-link" target="_blank">
+                                <img src="https://i.ibb.co/XrW44Q0W/linkedin.png" alt="LinkedIn" style="width: 20px; height: 20px;">
+                            </a>
+                            <a href="https://github.com/MannanUlHaq" class="social-link" target="_blank">
+                                <img src="https://i.ibb.co/tMBBYbpj/Github.png" alt="GitHub" style="width: 20px; height: 20px;">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3 style="margin-bottom: 2rem; color: #333;">Send a Message</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Mannan Ul Haq</h3>
+                    <p>Data Scientist, AI Researcher & Developer passionate about Machine Learning, Deep Learning, NLP, Computer Vision, and Agentic AI. Building intelligent solutions that make real-world impact.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Get In Touch</h3>
+                    <div class="contact-item" style="background: none; padding: 0; margin-bottom: 1rem;">
+                        <img src="https://i.ibb.co/S435fC1H/email.png" alt="Email" style="width: 20px; height: 20px;">
+                        <p>mannanulhaq2004@gmail.com</p>
+                    </div>
+                    <div class="contact-item" style="background: none; padding: 0; margin-bottom: 1rem;">
+                        <img src="https://i.ibb.co/fYNVyytR/phone.png" alt="Phone" style="width: 20px; height: 20px;">
+                        <p>+92 324 6272488</p>
+                    </div>
+                    <div class="contact-item" style="background: none; padding: 0; margin-bottom: 1rem;">
+                        <img src="https://i.ibb.co/27nnMXKx/location.png" alt="Location" style="width: 20px; height: 20px;">
+                        <p>Lahore, Pakistan</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Mannan Ul Haq. All rights reserved.</p>
+                <div class="social-links" style="justify-content: center; margin-top: 1rem;">
+                    <a href="https://github.com/MannanUlHaq" class="social-link" target="_blank">
+                        <img src="https://i.ibb.co/tMBBYbpj/Github.png" alt="GitHub" style="width: 20px; height: 20px;">
+                    </a>
+                    <a href="https://www.linkedin.com/in/mannan-ul-haq-5578b721b/" class="social-link" target="_blank">
+                        <img src="https://i.ibb.co/XrW44Q0W/linkedin.png" alt="LinkedIn" style="width: 20px; height: 20px;">
+                    </a>
+                    <a href="mailto:mannanulhaq2004@gmail.com" class="social-link">
+                        <img src="https://i.ibb.co/S435fC1H/email.png" alt="Email" style="width: 20px; height: 20px;">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Observe timeline items
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            observer.observe(item);
+        });
+
+        // Dynamic typing effect for hero title
+        function typeWriter(element, text, delay = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, delay);
+                }
+            }
+            type();
+        }
+
+        // Initialize typing effect when page loads
+        window.addEventListener('load', function() {
+            const heroTitle = document.querySelector('.hero-content h1 .highlight');
+            if (heroTitle) {
+                typeWriter(heroTitle, 'Mannan Ul Haq', 100);
+            }
+        });
+
+        // Add particle effect to hero section
+        function createParticle() {
+            const hero = document.querySelector('.hero');
+            const particle = document.createElement('div');
+            particle.style.position = 'absolute';
+            particle.style.width = '4px';
+            particle.style.height = '4px';
+            particle.style.backgroundColor = 'rgba(66, 133, 244, 0.3)';
+            particle.style.borderRadius = '50%';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = '100%';
+            particle.style.pointerEvents = 'none';
+            particle.style.zIndex = '0';
+            
+            hero.appendChild(particle);
+            
+            const animationDuration = Math.random() * 3000 + 2000;
+            const horizontalMovement = (Math.random() - 0.5) * 200;
+            
+            particle.animate([
+                { transform: 'translate(0, 0) scale(0)', opacity: 0 },
+                { transform: `translate(${horizontalMovement}px, -100vh) scale(1)`, opacity: 1 },
+                { transform: `translate(${horizontalMovement * 2}px, -100vh) scale(0)`, opacity: 0 }
+            ], {
+                duration: animationDuration,
+                easing: 'ease-out'
+            }).onfinish = () => particle.remove();
+        }
+
+        // Create particles periodically
+        setInterval(createParticle, 300);
+
+        // Form submission handler
+        document.querySelector('.contact-form form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const subject = formData.get('subject');
+            const message = formData.get('message');
+            
+            // Create mailto link
+            const mailtoLink = `mailto:mannanulhaq2004@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+            
+            // Open default email client
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            const button = this.querySelector('button[type="submit"]');
+            const originalText = button.textContent;
+            button.textContent = 'Message Sent!';
+            button.style.background = '#4caf50';
+            
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.style.background = '#4285f4';
+                this.reset();
+            }, 3000);
+        });
+
+        // Add hover effects to project cards
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Add click animation to buttons
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.style.position = 'absolute';
+                ripple.style.borderRadius = '50%';
+                ripple.style.background = 'rgba(255, 255, 255, 0.6)';
+                ripple.style.transform = 'scale(0)';
+                ripple.style.animation = 'ripple 0.6s linear';
+                ripple.style.pointerEvents = 'none';
+                
+                this.style.position = 'relative';
+                this.style.overflow = 'hidden';
+                this.appendChild(ripple);
+                
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+
+        // Add CSS for ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Skills animation on scroll
+        const skillsObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const stars = entry.target.querySelectorAll('.star.filled');
+                    stars.forEach((star, index) => {
+                        setTimeout(() => {
+                            star.style.animation = 'starFill 0.3s ease-in-out';
+                        }, index * 100);
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.skill-item').forEach(item => {
+            skillsObserver.observe(item);
+        });
+
+        // Add star fill animation
+        const starStyle = document.createElement('style');
+        starStyle.textContent = `
+            @keyframes starFill {
+                0% { transform: scale(0.5); }
+                50% { transform: scale(1.2); }
+                100% { transform: scale(1); }
+            }
+        `;
+        document.head.appendChild(starStyle);
+
+        // Add counter animation for statistics
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current);
+            }, 20);
+        }
+
+        // Lazy loading for images
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.classList.remove('lazy');
+                    observer.unobserve(img);
+                }
+            });
+        });
+
+        document.querySelectorAll('img[data-src]').forEach(img => {
+            imageObserver.observe(img);
+        });
+
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+        });
+
+        // Preloader styles
+        const preloaderStyle = document.createElement('style');
+        preloaderStyle.textContent = `
+            body:not(.loaded) {
+                overflow: hidden;
+            }
+            
+            body:not(.loaded)::before {
+                content: '';
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: #fff;
+                z-index: 9999;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            body:not(.loaded)::after {
+                content: '';
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                width: 50px;
+                height: 50px;
+                border: 4px solid #f3f3f3;
+                border-top: 4px solid #4285f4;
+                border-radius: 50%;
+                animation: spin 1s linear infinite;
+                transform: translate(-50%, -50%);
+                z-index: 10000;
+            }
+            
+            @keyframes spin {
+                0% { transform: translate(-50%, -50%) rotate(0deg); }
+                100% { transform: translate(-50%, -50%) rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(preloaderStyle);
+    </script>
+</body>
+</html>
