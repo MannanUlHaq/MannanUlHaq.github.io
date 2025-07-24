@@ -254,18 +254,21 @@
             top: 10%;
             right: 10%;
             animation-delay: 0s;
+            background: #5170ff;
         }
 
         .floating-icon:nth-child(2) {
             bottom: 20%;
             left: 5%;
             animation-delay: 1s;
+            background: #00bf63;
         }
 
         .floating-icon:nth-child(3) {
             top: 50%;
             right: 0%;
             animation-delay: 2s;
+            background: #8c52ff;
         }
 
         /* Sections */
@@ -514,12 +517,12 @@
 
         .skill-category h3 {
             display: flex;
-            align-items: center;
+            align-items: left;
             gap: 1rem;
             margin-bottom: 2rem;
             font-size: 1.3rem;
             color: #333;
-            justify-content: center;
+            justify-content: left;
         }
 
         .skill-category img {
@@ -530,7 +533,7 @@
         .skill-item {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: left;
             margin-bottom: 1rem;
             padding: 0.5rem 0;
         }
@@ -766,13 +769,13 @@
         }
 
         .contact-item img {
-            width: 24px;
-            height: 24px;
+            width: 34px;
+            height: 34px;
         }
 
         .whatsapp-icon {
-            width: 24px;
-            height: 24px;
+            width: 34px;
+            height: 34px;
         }
 
         .contact-form {
@@ -985,6 +988,76 @@
                 height: 25px;
             }
         }
+      
+      /* Recommendations Section */
+.recommendations {
+    background: #f8f9fa;
+}
+
+.recommendations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.recommendation-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.recommendation-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.recommender-details h3 {
+    color: #333;
+    margin-bottom: 0.3rem;
+}
+
+.recommender-title {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+}
+
+.recommender-connection {
+    color: #4285f4;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.recommendation-content {
+    color: #555;
+    line-height: 1.7;
+    font-style: italic;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.recommendation-content::before {
+    content: '"';
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 3rem;
+    line-height: 1;
+    color: #4285f4;
+    opacity: 0.2;
+    font-family: Georgia, serif;
+}
+
+@media (max-width: 768px) {
+    .recommendations-grid {
+        grid-template-columns: 1fr;
+    }
+}
+      
     </style>
 </head>
 <body>
@@ -998,6 +1071,7 @@
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#recommendations">Recommendations</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -1048,19 +1122,19 @@
                     <img src="https://i.ibb.co/nM7rBFC8/Education-Excellence.png" alt="Education Excellence">
                     <h3>Education Excellence</h3>
                     <p class="card-subtitle">Academic Foundation</p>
-                    <p>BS Data Science at FAST-NUCES Lahore with strong performance in machine learning, AI, and big data analytics. Consistent academic excellence across theoretical and practical domains.</p>
+                    <p>Final-year BS Data Science student at FAST-NUCES Lahore with a strong academic track record in AI, machine learning, deep learning, data analysis, NLP, computer vision, and big data analytics. Demonstrated excellence across both theoretical understanding and hands-on implementation of real-world systems.</p>
                 </div>
                 <div class="about-card">
                     <img src="https://i.ibb.co/6cCxK2gW/Technical-Expertise.png" alt="Technical Expertise">
                     <h3>Technical Expertise</h3>
                     <p class="card-subtitle">Core Technologies</p>
-                    <p>Proficient in Python, C++, JavaScript, and R. Expert in TensorFlow, PyTorch, Scikit-learn, and Hugging Face Transformers. Experienced with big data tools, cloud platforms, and modern development workflows.</p>
+                    <p>Skilled in programming languages including Python, R, C++, C, C#, Java, JavaScript, HTML, and CSS. Proficient with tools and frameworks such as TensorFlow, PyTorch, Scikit-learn, Hugging Face Transformers, OpenCV, and key Python libraries for data science. Experienced with big data ecosystems (PySpark, Hadoop), cloud tools, and modern development workflows.</p>
                 </div>
                 <div class="about-card">
                     <img src="https://i.ibb.co/CsX4RwHW/Community-Impact.png" alt="Community Impact">
                     <h3>Community Impact</h3>
                     <p class="card-subtitle">Mentorship & Teaching</p>
-                    <p>Founder of CodeTechMentor providing free programming resources. Teaching Assistant at FAST-NUCES mentoring 100+ students in data science and AI development.</p>
+                    <p>Founder of CodeTechMentor, a platform offering free resources and guidance in programming, data science, and AI. Serving as a Teaching Assistant at FAST-NUCES, mentoring over 150 students in data science and applied machine learning, while also actively contributing to collaborative freelance AI and computer vision projects.</p>
                 </div>
             </div>
         </div>
@@ -1075,7 +1149,7 @@
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <h3 class="job-title">Junior Software Engineer (Jul 2025 - Present)</h3>
+                        <h3 class="job-title">Junior Software Engineer</h3>
                         <p class="company">FAST-NUCES</p>
                         <p class="job-period">Jul 2025 - Present</p>
                         <span class="job-type research">Funded Research Position</span>
@@ -1085,7 +1159,7 @@
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <h3 class="job-title">Intern – Applied Machine Learning & Data Fusion (Jun 2025 - Present)</h3>
+                        <h3 class="job-title">Intern – Applied Machine Learning & Data Fusion</h3>
                         <p class="company">StalFusion Research</p>
                         <p class="job-period">Jun 2025 - Present</p>
                         <span class="job-type internship">Internship</span>
@@ -1095,7 +1169,7 @@
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <h3 class="job-title">Freelance AI & Software Developer (Jun 2025 - Present)</h3>
+                        <h3 class="job-title">Freelance AI & Software Developer</h3>
                         <p class="company">Devinci Code</p>
                         <p class="job-period">Jun 2025 - Present</p>
                         <span class="job-type freelance">Freelancing</span>
@@ -1105,7 +1179,7 @@
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <h3 class="job-title">Teaching Assistant (Aug 2024 - Present)</h3>
+                        <h3 class="job-title">Teaching Assistant</h3>
                         <p class="company">FAST-NUCES</p>
                         <p class="job-period">Aug 2024 - Present</p>
                         <span class="job-type academic">Academic</span>
@@ -1115,7 +1189,7 @@
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <h3 class="job-title">Undergraduate Research Assistant (Oct 2024 - Jul 2025)</h3>
+                        <h3 class="job-title">Undergraduate Research Assistant</h3>
                         <p class="company">FAST-NUCES</p>
                         <p class="job-period">Oct 2024 - Jul 2025</p>
                         <span class="job-type research">Research</span>
@@ -1174,11 +1248,41 @@
                             <div class="star filled"></div>
                             <div class="star filled"></div>
                             <div class="star filled"></div>
+                            <div class="star filled"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Java</span>
+                        <div class="skill-stars">
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                            <div class="star"></div>
                             <div class="star"></div>
                         </div>
                     </div>
                     <div class="skill-item">
-                        <span class="skill-name">JavaScript</span>
+                        <span class="skill-name">R</span>
+                        <div class="skill-stars">
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                            <div class="star"></div>
+                            <div class="star"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">SQL</span>
+                        <div class="skill-stars">
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                        </div>
+                    </div>
+                                      <div class="skill-item">
+                        <span class="skill-name">HTML</span>
                         <div class="skill-stars">
                             <div class="star filled"></div>
                             <div class="star filled"></div>
@@ -1187,8 +1291,18 @@
                             <div class="star"></div>
                         </div>
                     </div>
-                    <div class="skill-item">
-                        <span class="skill-name">SQL</span>
+                                      <div class="skill-item">
+                        <span class="skill-name">CSS</span>
+                        <div class="skill-stars">
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                            <div class="star"></div>
+                        </div>
+                    </div>
+                                      <div class="skill-item">
+                        <span class="skill-name">JavaScript</span>
                         <div class="skill-stars">
                             <div class="star filled"></div>
                             <div class="star filled"></div>
@@ -1225,7 +1339,7 @@
                         Tools & Technologies
                     </h3>
                     <div style="margin-bottom: 1.5rem;">
-                        <h4 style="color: #333; margin-bottom: 0.5rem; text-align: center;">Development</h4>
+                        <h4 style="color: #333; margin-bottom: 0.5rem; text-align: left;">Development</h4>
                         <div class="skill-tags">
                             <span class="skill-tag">Git/GitHub</span>
                             <span class="skill-tag">Replit</span>
@@ -1234,12 +1348,15 @@
                             <span class="skill-tag">VS Code</span>
                             <span class="skill-tag">PyCharm</span>
                             <span class="skill-tag">Jupyter Notebook</span>
+                            <span class="skill-tag">Kaggle Notebook</span>
                             <span class="skill-tag">Google Colab</span>
+                            <span class="skill-tag">Deepnote</span>
                             <span class="skill-tag">Figma</span>
+                            <span class="skill-tag">CodePen</span>
                         </div>
                     </div>
                     <div style="margin-bottom: 1.5rem;">
-                        <h4 style="color: #333; margin-bottom: 0.5rem; text-align: center;">AI/ML</h4>
+                        <h4 style="color: #333; margin-bottom: 0.5rem; text-align: left;">AI/ML</h4>
                         <div class="skill-tags">
                             <span class="skill-tag">TensorFlow</span>
                             <span class="skill-tag">Keras</span>
@@ -1257,7 +1374,7 @@
                         </div>
                     </div>
                     <div style="margin-bottom: 1.5rem;">
-                        <h4 style="color: #333; margin-bottom: 0.5rem; text-align: center;">Data Tools</h4>
+                        <h4 style="color: #333; margin-bottom: 0.5rem; text-align: left;">Data Tools</h4>
                         <div class="skill-tags">
                             <span class="skill-tag">Tableau</span>
                             <span class="skill-tag">Power BI</span>
@@ -1267,7 +1384,7 @@
                         </div>
                     </div>
                     <div>
-                        <h4 style="color: #333; margin-bottom: 0.5rem; text-align: center;">Automation & Others</h4>
+                        <h4 style="color: #333; margin-bottom: 0.5rem; text-align: left;">Automation & Others</h4>
                         <div class="skill-tags">
                             <span class="skill-tag">n8n</span>
                             <span class="skill-tag">Twilio</span>
@@ -1276,7 +1393,6 @@
                             <span class="skill-tag">BeautifulSoup</span>
                             <span class="skill-tag">Selenium</span>
                             <span class="skill-tag">Requests</span>
-                            <span class="skill-tag">Kaggle Notebooks</span>
                             <span class="skill-tag">Go High Level</span>
                             <span class="skill-tag">Notion</span>
                         </div>
@@ -1470,6 +1586,52 @@
             </div>
         </div>
     </section>
+  
+  <!-- Recommendations Section -->
+<section class="section recommendations" id="recommendations">
+    <div class="container">
+        <h2 class="section-title">Recommendations</h2>
+        <p style="text-align: center; color: #666; margin-bottom: 3rem;">What colleagues and mentors say about my work.</p>
+        
+        <div class="recommendations-grid">
+            <!-- Recommendation 1 -->
+            <div class="recommendation-card">
+                <div class="recommender-details">
+                    <h3>Asma Ahmad</h3>
+                    <p class="recommender-title">Associate Professor (AI & DS) at FAST NUCES, Lahore</p>
+                    <p class="recommender-connection">Mentored Mannan on research work • July 18, 2025</p>
+                </div>
+                <div class="recommendation-content">
+                    <p>"I had the pleasure of supervising Mannan Ul Haq during his undergraduate research work on a Human Activity Recognition project. Throughout our collaboration, Mannan consistently demonstrated strong initiative, a deep curiosity for advanced AI techniques, and a remarkable ability to learn and apply complex concepts quickly — especially in areas like Capsule Networks and orientation-aware feature engineering. His work ethic, technical skills, and team-oriented attitude made him a standout contributor. I am confident he will continue to grow and make meaningful contributions in the field of Data Science and AI."</p>
+                </div>
+            </div>
+            
+            <!-- Recommendation 2 -->
+            <div class="recommendation-card">
+                <div class="recommender-details">
+                    <h3>Arooj Khalil</h3>
+                    <p class="recommender-title">Lecturer at FAST-NUCES</p>
+                    <p class="recommender-connection">Worked with Mannan on the same team • July 12, 2025</p>
+                </div>
+                <div class="recommendation-content">
+                    <p>"I had the pleasure of working with Mannan while he served as a Teaching Assistant for the Data Science course. Throughout the term, he consistently demonstrated professionalism, punctuality, and a strong commitment to supporting students. His reliability and timely assistance made a significant difference in maintaining the course flow and helping students stay on track. Mannan is a dependable and dedicated individual—an asset to any academic or professional team."</p>
+                </div>
+            </div>
+            
+            <!-- Recommendation 3 -->
+            <div class="recommendation-card">
+                <div class="recommender-details">
+                    <h3>Razi Uddin</h3>
+                    <p class="recommender-title">Lecturer at FAST-NUCES</p>
+                    <p class="recommender-connection">Worked with Mannan on the same team • July 12, 2025</p>
+                </div>
+                <div class="recommendation-content">
+                    <p>"I had the pleasure of having Mannan Ul Haq as the Teaching Assistant for my Applied Machine Learning course at FAST University in Spring 2025. Mannan did an outstanding job supporting the course — assisting with assignments, quizzes, and project-related tasks. His dedication, reliability, and strong understanding of the subject made a significant impact on the students' learning experience. He was proactive, professional, and a valuable asset throughout the semester. I highly recommend him for any future academic or industry role in machine learning or data science."</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- Contact Section -->
     <section class="section contact" id="contact">
@@ -1527,29 +1689,33 @@
                 </div>
 
                 <div class="contact-form">
-                    <h3 style="margin-bottom: 2rem; color: #333;">Send a Message</h3>
-                    <form action="https://send.pageclip.co/YmFZuMoMyyQU4Wo3JYz21TA6bZ7homnt/Contact-Form" class="pageclip-form" method="post">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary pageclip-form__submit" style="width: 100%;">
-                            <span>Send Message</span>
-                        </button>
-                    </form>
-                </div>
+    <h3 style="margin-bottom: 2rem; color: #333;">Send a Message</h3>
+    <form action="https://send.pageclip.co/YmFZuMoMyyQU4Wo3JYz21TA6bZ7homnt/Contact-Form" class="pageclip-form" method="post">
+        <!-- Add this hidden input for PageClip -->
+        <input type="hidden" name="_pageclip" value="YmFZuMoMyyQU4Wo3JYz21TA6bZ7homnt">
+        
+        <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" required>
+        </div>
+        <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary pageclip-form__submit" style="width: 100%;">
+            <span>Send Message</span>
+        </button>
+    </form>
+</div>
+              
             </div>
         </div>
     </section>
@@ -1569,6 +1735,7 @@
                         <li><a href="#experience">Experience</a></li>
                         <li><a href="#skills">Skills</a></li>
                         <li><a href="#projects">Projects</a></li>
+                        <li><a href="#recommendations">Recommendations</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
@@ -1598,14 +1765,13 @@
                         <img src="https://i.ibb.co/XrW44Q0W/linkedin.png" alt="LinkedIn" style="width: 20px; height: 20px;">
                     </a>
                     <a href="mailto:mannanulhaq2004@gmail.com" class="social-link">
-                        <img src="https://i.ibb.co/S75VSJHB/email.png" alt="Email" style="width: 20px; height: 20px;">
+                        <img src="https://i.ibb.co/7twDR2GQ/email2.png" alt="Email" style="width: 20px; height: 20px;">
                     </a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
     <script>
         // Navbar scroll effect
         window.addEventListener('scroll', function() {
@@ -1867,5 +2033,6 @@
         `;
         document.head.appendChild(preloaderStyle);
     </script>
+  <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
 </body>
 </html>
