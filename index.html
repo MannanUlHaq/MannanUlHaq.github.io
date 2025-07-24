@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mannan Ul Haq - Portfolio</title>
+    <link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css" media="screen">
     <style>
         * {
             margin: 0;
@@ -101,6 +102,7 @@
             align-items: center;
             position: relative;
             overflow: hidden;
+            padding-top: 100px;
         }
 
         .hero::before {
@@ -134,11 +136,18 @@
             font-size: 3.5rem;
             margin-bottom: 1rem;
             color: #333;
+            line-height: 1.2;
+        }
+
+        .hero-greeting {
+            display: block;
+            margin-bottom: 0.5rem;
         }
 
         .hero-content h1 .highlight {
             color: #4285f4;
             position: relative;
+            display: block;
         }
 
         .hero-content .subtitle {
@@ -211,8 +220,8 @@
             border-radius: 50%;
             object-fit: cover;
             border: 8px solid white;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            animation: float 6s ease-in-out infinite;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), 0 0 30px rgba(66, 133, 244, 0.2);
+            animation: float 6s ease-in-out infinite, glow 3s ease-in-out infinite alternate;
         }
 
         .floating-icons {
@@ -243,19 +252,19 @@
 
         .floating-icon:nth-child(1) {
             top: 10%;
-            right: 20%;
+            right: 10%;
             animation-delay: 0s;
         }
 
         .floating-icon:nth-child(2) {
-            bottom: 30%;
-            left: 10%;
+            bottom: 20%;
+            left: 5%;
             animation-delay: 1s;
         }
 
         .floating-icon:nth-child(3) {
-            top: 60%;
-            right: 5%;
+            top: 50%;
+            right: 0%;
             animation-delay: 2s;
         }
 
@@ -510,6 +519,7 @@
             margin-bottom: 2rem;
             font-size: 1.3rem;
             color: #333;
+            justify-content: center;
         }
 
         .skill-category img {
@@ -599,6 +609,17 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
+        }
+
+        .cert-link {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .cert-link:hover .cert-card {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
 
         .awards-grid {
@@ -739,12 +760,17 @@
         }
 
         .contact-item:hover {
-            background: #4285f4;
-            color: white;
+            background: rgba(66, 133, 244, 0.1);
+            color: #333;
             transform: translateX(10px);
         }
 
         .contact-item img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .whatsapp-icon {
             width: 24px;
             height: 24px;
         }
@@ -898,10 +924,23 @@
             }
         }
 
+        @keyframes glow {
+            0% {
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), 0 0 30px rgba(66, 133, 244, 0.2);
+            }
+            100% {
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), 0 0 50px rgba(66, 133, 244, 0.4);
+            }
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
+            }
+
+            .hero {
+                padding-top: 120px;
             }
 
             .hero-container {
@@ -930,6 +969,21 @@
             .timeline-dot {
                 left: 20px;
             }
+
+            .profile-container {
+                width: 300px;
+                height: 300px;
+            }
+
+            .floating-icon {
+                width: 50px;
+                height: 50px;
+            }
+
+            .floating-icon img {
+                width: 25px;
+                height: 25px;
+            }
         }
     </style>
 </head>
@@ -953,7 +1007,10 @@
     <section class="hero" id="home">
         <div class="hero-container">
             <div class="hero-content">
-                <h1>Hi, I'm <span class="highlight">Mannan Ul Haq</span></h1>
+                <h1>
+                    <span class="hero-greeting">Hi, I'm</span>
+                    <span class="highlight">Mannan Ul Haq</span>
+                </h1>
                 <p class="subtitle">Associate Data Scientist, AI Researcher & Developer</p>
                 <div class="hero-buttons">
                     <a href="#contact" class="btn btn-primary">Get In Touch</a>
@@ -962,7 +1019,7 @@
             </div>
             <div class="hero-image">
                 <div class="profile-container">
-                    <img src="https://i.ibb.co/RG5C7yD1/Image1.jpg" alt="Mannan Ul Haq" class="profile-image">
+                    <img src="https://i.ibb.co/67c3zPpD/Image2.jpg" alt="Mannan Ul Haq" class="profile-image">
                     <div class="floating-icons">
                         <div class="floating-icon">
                             <img src="https://i.ibb.co/qY73YgHy/Icon-Near-Profile-1.png" alt="Code">
@@ -994,13 +1051,13 @@
                     <p>BS Data Science at FAST-NUCES Lahore with strong performance in machine learning, AI, and big data analytics. Consistent academic excellence across theoretical and practical domains.</p>
                 </div>
                 <div class="about-card">
-                    <img src="https://i.ibb.co/CsX4RwHW/Technical-Expertise.png" alt="Technical Expertise">
+                    <img src="https://i.ibb.co/6cCxK2gW/Technical-Expertise.png" alt="Technical Expertise">
                     <h3>Technical Expertise</h3>
                     <p class="card-subtitle">Core Technologies</p>
                     <p>Proficient in Python, C++, JavaScript, and R. Expert in TensorFlow, PyTorch, Scikit-learn, and Hugging Face Transformers. Experienced with big data tools, cloud platforms, and modern development workflows.</p>
                 </div>
                 <div class="about-card">
-                    <img src="https://i.ibb.co/2QJ1Gwh/Community-Impact.png" alt="Community Impact">
+                    <img src="https://i.ibb.co/CsX4RwHW/Community-Impact.png" alt="Community Impact">
                     <h3>Community Impact</h3>
                     <p class="card-subtitle">Mentorship & Teaching</p>
                     <p>Founder of CodeTechMentor providing free programming resources. Teaching Assistant at FAST-NUCES mentoring 100+ students in data science and AI development.</p>
@@ -1164,11 +1221,11 @@
 
                 <div class="skill-category">
                     <h3>
-                        <img src="https://i.ibb.co/qLwPSSqL/Tools-Technologies.png" alt="Tools & Technologies">
+                        <img src="https://i.ibb.co/2QJ1Gwh/Tools-Technologies.png" alt="Tools & Technologies">
                         Tools & Technologies
                     </h3>
                     <div style="margin-bottom: 1.5rem;">
-                        <h4 style="color: #333; margin-bottom: 0.5rem;">Development</h4>
+                        <h4 style="color: #333; margin-bottom: 0.5rem; text-align: center;">Development</h4>
                         <div class="skill-tags">
                             <span class="skill-tag">Git/GitHub</span>
                             <span class="skill-tag">Replit</span>
@@ -1182,7 +1239,7 @@
                         </div>
                     </div>
                     <div style="margin-bottom: 1.5rem;">
-                        <h4 style="color: #333; margin-bottom: 0.5rem;">AI/ML</h4>
+                        <h4 style="color: #333; margin-bottom: 0.5rem; text-align: center;">AI/ML</h4>
                         <div class="skill-tags">
                             <span class="skill-tag">TensorFlow</span>
                             <span class="skill-tag">Keras</span>
@@ -1200,7 +1257,7 @@
                         </div>
                     </div>
                     <div style="margin-bottom: 1.5rem;">
-                        <h4 style="color: #333; margin-bottom: 0.5rem;">Data Tools</h4>
+                        <h4 style="color: #333; margin-bottom: 0.5rem; text-align: center;">Data Tools</h4>
                         <div class="skill-tags">
                             <span class="skill-tag">Tableau</span>
                             <span class="skill-tag">Power BI</span>
@@ -1210,7 +1267,7 @@
                         </div>
                     </div>
                     <div>
-                        <h4 style="color: #333; margin-bottom: 0.5rem;">Automation & Others</h4>
+                        <h4 style="color: #333; margin-bottom: 0.5rem; text-align: center;">Automation & Others</h4>
                         <div class="skill-tags">
                             <span class="skill-tag">n8n</span>
                             <span class="skill-tag">Twilio</span>
@@ -1249,20 +1306,24 @@
                 </div>
 
                 <div class="education-card">
-                    <img src="https://i.ibb.co/VchWWk1b/Certifications.png" alt="Certifications" style="width: 60px; height: 60px; margin-bottom: 1rem;">
+                    <img src="https://i.ibb.co/Z6nfHqJX/Certifications.png" alt="Certifications" style="width: 60px; height: 60px; margin-bottom: 1rem;">
                     <h3>Certifications</h3>
                     <p style="color: #4285f4; margin-bottom: 1rem;">Professional Credentials</p>
                     <div class="cert-grid">
-                        <div class="cert-card">
-                            <h4 style="color: #333; margin-bottom: 0.5rem;">DataCamp Certified</h4>
-                            <p style="color: #4285f4; font-size: 0.9rem;">Associate Data Scientist</p>
-                            <span style="background: #e8f5e8; color: #2e7d32; padding: 4px 8px; border-radius: 12px; font-size: 0.8rem; font-weight: 600;">Verified</span>
-                        </div>
-                        <div class="cert-card">
-                            <h4 style="color: #333; margin-bottom: 0.5rem;">DataCamp Certified</h4>
-                            <p style="color: #4285f4; font-size: 0.9rem;">Associate Data Analyst</p>
-                            <span style="background: #e8f5e8; color: #2e7d32; padding: 4px 8px; border-radius: 12px; font-size: 0.8rem; font-weight: 600;">Verified</span>
-                        </div>
+                        <a href="https://www.datacamp.com/certificate/DSA0018593067639" target="_blank" class="cert-link">
+                            <div class="cert-card">
+                                <h4 style="color: #333; margin-bottom: 0.5rem;">DataCamp Certified</h4>
+                                <p style="color: #4285f4; font-size: 0.9rem;">Associate Data Scientist</p>
+                                <span style="background: #e8f5e8; color: #2e7d32; padding: 4px 8px; border-radius: 12px; font-size: 0.8rem; font-weight: 600;">Verified</span>
+                            </div>
+                        </a>
+                        <a href="https://www.datacamp.com/certificate/DAA0015786059310" target="_blank" class="cert-link">
+                            <div class="cert-card">
+                                <h4 style="color: #333; margin-bottom: 0.5rem;">DataCamp Certified</h4>
+                                <p style="color: #4285f4; font-size: 0.9rem;">Associate Data Analyst</p>
+                                <span style="background: #e8f5e8; color: #2e7d32; padding: 4px 8px; border-radius: 12px; font-size: 0.8rem; font-weight: 600;">Verified</span>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -1278,7 +1339,7 @@
                         <p style="color: #4285f4; font-weight: 600;">FAST-NUCES</p>
                     </div>
                     <div class="award-card">
-                        <img src="https://i.ibb.co/VKHZnzm/Academic-Excellence.png" alt="Academic Excellence" style="width: 60px; height: 60px; margin-bottom: 1rem;">
+                        <img src="https://i.ibb.co/5htpkCB6/Academic-Excellence.png" alt="Academic Excellence" style="width: 60px; height: 60px; margin-bottom: 1rem;">
                         <h3>Academic Excellence</h3>
                         <p style="color: #666; margin-bottom: 0.5rem;">SGPA 4.00 Spring 2025</p>
                         <p style="color: #4285f4; font-weight: 600;">Top Performer</p>
@@ -1421,7 +1482,7 @@
                     <h3 style="margin-bottom: 2rem; color: #333;">Contact Information</h3>
                     
                     <div class="contact-item">
-                        <img src="https://i.ibb.co/S435fC1H/email.png" alt="Email">
+                        <img src="https://i.ibb.co/S75VSJHB/email.png" alt="Email">
                         <div>
                             <h4>Email</h4>
                             <p>mannanulhaq2004@gmail.com</p>
@@ -1437,7 +1498,7 @@
                     </div>
                     
                     <div class="contact-item">
-                        <div style="width: 24px; height: 24px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 12px;">W</div>
+                        <img src="https://i.ibb.co/Z6WDcNmq/whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
                         <div>
                             <h4>WhatsApp</h4>
                             <p>Chat on WhatsApp</p>
@@ -1445,7 +1506,7 @@
                     </div>
                     
                     <div class="contact-item">
-                        <img src="https://i.ibb.co/27nnMXKx/location.png" alt="Location">
+                        <img src="https://i.ibb.co/YBkYksmv/location.png" alt="Location">
                         <div>
                             <h4>Location</h4>
                             <p>Lahore, Pakistan</p>
@@ -1467,7 +1528,7 @@
 
                 <div class="contact-form">
                     <h3 style="margin-bottom: 2rem; color: #333;">Send a Message</h3>
-                    <form>
+                    <form action="https://send.pageclip.co/YmFZuMoMyyQU4Wo3JYz21TA6bZ7homnt/Contact-Form" class="pageclip-form" method="post">
                         <div class="form-group">
                             <label for="name">Full Name</label>
                             <input type="text" id="name" name="name" required>
@@ -1484,7 +1545,9 @@
                             <label for="message">Message</label>
                             <textarea id="message" name="message" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                        <button type="submit" class="btn btn-primary pageclip-form__submit" style="width: 100%;">
+                            <span>Send Message</span>
+                        </button>
                     </form>
                 </div>
             </div>
@@ -1512,7 +1575,7 @@
                 <div class="footer-section">
                     <h3>Get In Touch</h3>
                     <div class="contact-item" style="background: none; padding: 0; margin-bottom: 1rem;">
-                        <img src="https://i.ibb.co/S435fC1H/email.png" alt="Email" style="width: 20px; height: 20px;">
+                        <img src="https://i.ibb.co/S75VSJHB/email.png" alt="Email" style="width: 20px; height: 20px;">
                         <p>mannanulhaq2004@gmail.com</p>
                     </div>
                     <div class="contact-item" style="background: none; padding: 0; margin-bottom: 1rem;">
@@ -1520,7 +1583,7 @@
                         <p>+92 324 6272488</p>
                     </div>
                     <div class="contact-item" style="background: none; padding: 0; margin-bottom: 1rem;">
-                        <img src="https://i.ibb.co/27nnMXKx/location.png" alt="Location" style="width: 20px; height: 20px;">
+                        <img src="https://i.ibb.co/YBkYksmv/location.png" alt="Location" style="width: 20px; height: 20px;">
                         <p>Lahore, Pakistan</p>
                     </div>
                 </div>
@@ -1535,13 +1598,14 @@
                         <img src="https://i.ibb.co/XrW44Q0W/linkedin.png" alt="LinkedIn" style="width: 20px; height: 20px;">
                     </a>
                     <a href="mailto:mannanulhaq2004@gmail.com" class="social-link">
-                        <img src="https://i.ibb.co/S435fC1H/email.png" alt="Email" style="width: 20px; height: 20px;">
+                        <img src="https://i.ibb.co/S75VSJHB/email.png" alt="Email" style="width: 20px; height: 20px;">
                     </a>
                 </div>
             </div>
         </div>
     </footer>
 
+    <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
     <script>
         // Navbar scroll effect
         window.addEventListener('scroll', function() {
@@ -1645,36 +1709,6 @@
 
         // Create particles periodically
         setInterval(createParticle, 300);
-
-        // Form submission handler
-        document.querySelector('.contact-form form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const subject = formData.get('subject');
-            const message = formData.get('message');
-            
-            // Create mailto link
-            const mailtoLink = `mailto:mannanulhaq2004@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
-            
-            // Open default email client
-            window.location.href = mailtoLink;
-            
-            // Show success message
-            const button = this.querySelector('button[type="submit"]');
-            const originalText = button.textContent;
-            button.textContent = 'Message Sent!';
-            button.style.background = '#4caf50';
-            
-            setTimeout(() => {
-                button.textContent = originalText;
-                button.style.background = '#4285f4';
-                this.reset();
-            }, 3000);
-        });
 
         // Add hover effects to project cards
         document.querySelectorAll('.project-card').forEach(card => {
