@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mannan Ul Haq - Portfolio</title>
-    <link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css" media="screen">
     <style>
         * {
             margin: 0;
@@ -1689,29 +1688,32 @@
                 </div>
 
                 <div class="contact-form">
-                    <h3 style="margin-bottom: 2rem; color: #333;">Send a Message</h3>
-                    <form action="https://send.pageclip.co/YmFZuMoMyyQU4Wo3JYz21TA6bZ7homnt/Contact-Form" class="pageclip-form" method="post">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary pageclip-form__submit" style="width: 100%;">
-                            <span>Send Message</span>
-                        </button>
-                    </form>
-                </div>
+    <h3 style="margin-bottom: 2rem; color: #333;">Send a Message</h3>
+    <form action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="bc3bb568-f866-47a8-976b-fa2145b96885">
+        
+        <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" required>
+        </div>
+        <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+        </div>
+        <input type="hidden" name="redirect" value="https://web3forms.com/success">
+        <button type="submit" class="btn btn-primary" style="width: 100%;">
+            <span>Send Message</span>
+        </button>
+    </form>
+</div>
               
             </div>
         </div>
@@ -2030,6 +2032,5 @@
         `;
         document.head.appendChild(preloaderStyle);
     </script>
-  <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
 </body>
 </html>
